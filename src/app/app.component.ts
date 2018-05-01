@@ -14,9 +14,10 @@ export class AppComponent {
     new Recipe('Cookie', ['Cookie dough'], 'Throw it in the oven', 2)
   ]
   selectedRecipe = null;
+  selectedTitle = null;
+  // alwaysNull = null;
   editRecipe(clickedRecipe) {
     this.selectedRecipe = clickedRecipe;
-    console.log(typeof this.selectedRecipe.difficulty);
   }
   difficultyColor(currentRecipe) {
     if (currentRecipe.difficulty === 1) {
@@ -27,5 +28,15 @@ export class AppComponent {
   }
   finishedEditing() {
     this.selectedRecipe = null;
+  }
+  viewRecipe(clickedTitle) {
+    if(this.selectedTitle === null) {
+      this.selectedTitle = clickedTitle;
+    } else {
+      this.selectedTitle = null;
+    }
+  }
+  clickedTitleClass(currentTitle) {
+    return "show";
   }
 }
