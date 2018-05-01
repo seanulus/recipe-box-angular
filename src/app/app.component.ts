@@ -15,7 +15,6 @@ export class AppComponent {
   ]
   selectedRecipe = null;
   selectedTitle = null;
-  // alwaysNull = null;
   editRecipe(clickedRecipe) {
     this.selectedRecipe = clickedRecipe;
   }
@@ -36,7 +35,7 @@ export class AppComponent {
       this.selectedTitle = null;
     }
   }
-  clickedTitleClass(currentTitle) {
-    return "show";
+  addIngredient(array) {
+    array.push("");
   }
 }

@@ -6,11 +6,13 @@
   <h2>{{currentFocus}}</h2>
 
   <div *ngFor='let currentRecipe of recipes'>
-  <h3 (click)="viewRecipe(currentRecipe)" [class]="difficultyColor(currentRecipe)">{{currentRecipe.title}}</h3>
+  <h3 (click)="viewRecipe(currentRecipe)" [class]="difficultyColor(currentRecipe)">{{currentRecipe.title}} : {{currentRecipe.difficulty}}</h3>
   <div *ngIf="selectedTitle === currentRecipe">
+    <p>Ingredients:</p>
     <ul>
       <li *ngFor='let ingredient of currentRecipe.ingredients'>{{ingredient}}</li>
     </ul>
+    <p>Directions:</p>
     <ul>
       <li>{{currentRecipe.directions}}</li>
     </ul>
@@ -20,9 +22,11 @@
 </div>
 <div *ngIf="selectedRecipe">
   <h3>{{selectedRecipe.title}}</h3>
-  <h3>Edit Title of Recipe</h3>
-  <label>Enter Recipe Title:</label>
-  <input [(ngModel)]='selectedRecipe.title'><br>
+  <h3>Edit Recipe</h3>
+  <label>Enter Recipe directions:</label>
+  <input [(ngModel)]='selectedRecipe.directions'><br>
+  <label>Enter Recipe ingredients:</label>
+  <input [(ngModel)]='selectedRecipe.ingredients[selectedRecipe.ingredients.length - 1]'><button (click)=addIngredient(selectedRecipe.ingredients)>Add An Ingedient</button><br>
   <label>Enter recipe difficulty (1 or 2):</label>
   <br>
   <input type="radio" [(ngModel)]="selectedRecipe.difficulty" [value]="1">1 (Low Difficulty)<br>
