@@ -19,12 +19,14 @@
   <br>
   <button (click)="editRecipe(currentRecipe)">Edit!</button>
 </div>
-
-<h3>{{selectedRecipe.title}}</h3>
-<h3>Edit Title of Recipe</h3>
-<label>Enter Recipe Title:</label>
-<input [(ngModel)]='selectedRecipe.title'><br>
-<label>Enter recipe difficulty (1 or 2):</label>
-<br>
-<input type="radio" [(ngModel)]="selectedRecipe.difficulty" [value]="1">1 (Low Difficulty)<br>
-<input type="radio" [(ngModel)]="selectedRecipe.difficulty" [value]="2">2 (Moderate Difficulty)
+<div *ngIf="selectedRecipe">
+  <h3>{{selectedRecipe.title}}</h3>
+  <h3>Edit Title of Recipe</h3>
+  <label>Enter Recipe Title:</label>
+  <input [(ngModel)]='selectedRecipe.title'><br>
+  <label>Enter recipe difficulty (1 or 2):</label>
+  <br>
+  <input type="radio" [(ngModel)]="selectedRecipe.difficulty" [value]="1">1 (Low Difficulty)<br>
+  <input type="radio" [(ngModel)]="selectedRecipe.difficulty" [value]="2">2 (Moderate Difficulty)
+  <button (click)="finishedEditing()">Done</button>
+</div>

@@ -10,12 +10,13 @@ export class AppComponent {
   title = 'app';
   currentFocus: string = 'Store Your Recipes'
   recipes: Recipe[] = [
-    new Recipe('Macaroni and Cheese', ['Macaroni', 'Cheddar Cheese', 'Milk', 'Flour', 'Butter', 'Salt'], 'First, start boiling some water on the stove.', 2),
-    new Recipe('Cookie', ['Cookie dough'], 'Throw it in the oven', 1)
+    new Recipe('Macaroni and Cheese', ['Macaroni', 'Cheddar Cheese', 'Milk', 'Flour', 'Butter', 'Salt'], 'First, start boiling some water on the stove.', 1),
+    new Recipe('Cookie', ['Cookie dough'], 'Throw it in the oven', 2)
   ]
-  selectedRecipe: Recipe = this.recipes[0];
+  selectedRecipe = null;
   editRecipe(clickedRecipe) {
     this.selectedRecipe = clickedRecipe;
+    console.log(typeof this.selectedRecipe.difficulty);
   }
   difficultyColor(currentRecipe) {
     if (currentRecipe.difficulty === 1) {
@@ -23,5 +24,8 @@ export class AppComponent {
     } else if (currentRecipe.difficulty === 2) {
       return "bg-info";
     }
+  }
+  finishedEditing() {
+    this.selectedRecipe = null;
   }
 }
