@@ -13,3 +13,4 @@
   <button (click)="editRecipe(currentRecipe)">Edit!</button>
 </div>
 </div>
+<app-edit-recipe [childSelectedRecipe]="selectedRecipe" (clickedDone)="finishedEditing()"><app-edit-recipe>

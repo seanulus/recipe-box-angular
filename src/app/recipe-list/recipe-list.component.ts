@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Recipe } from '../models/recipe.model';
 @Component({
   selector: 'app-recipe-list',
@@ -7,7 +7,10 @@ import { Recipe } from '../models/recipe.model';
 })
 export class RecipeListComponent {
   @Input() childRecipeList: Recipe[];
+  @Output() clickSender = new EventEmitter();
   selectedTitle = null;
+  selectedRecipe = null;
+
   difficultyColor(currentRecipe) {
     if (currentRecipe.difficulty === 1) {
       return "bg-danger";
@@ -15,6 +18,7 @@ export class RecipeListComponent {
       return "bg-info";
     }
   }
+
   viewRecipe(clickedTitle) {
     if(this.selectedTitle === null) {
       this.selectedTitle = clickedTitle;
@@ -22,9 +26,16 @@ export class RecipeListComponent {
       this.selectedTitle = null;
     }
   }
-  constructor() { }
 
-  ngOnInit() {
+  editRecipe(clickedRecipe) {
+    this.selectedRecipe = clickedRecipe;
   }
+
+  finishedEditing() {
+    this.selectedRecipe = null;
+  }
+
+
+  constructor() { }
 
 }

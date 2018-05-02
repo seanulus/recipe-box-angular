@@ -5,17 +5,6 @@
   </h1>
   <h2>{{currentFocus}}</h2>
 
-  <app-recipe-list [childRecipeList]="masterRecipeList"><app-recipe-list>
-<div *ngIf="selectedRecipe">
-  <h3>{{selectedRecipe.title}}</h3>
-  <h3>Edit Recipe</h3>
-  <label>Enter Recipe directions:</label>
-  <input [(ngModel)]='selectedRecipe.directions'><br>
-  <label>Enter Recipe ingredients:</label>
-  <input [(ngModel)]='selectedRecipe.ingredients[selectedRecipe.ingredients.length - 1]'><button (click)=addIngredient(selectedRecipe.ingredients)>Add An Ingedient</button><br>
-  <label>Enter recipe difficulty (1 or 2):</label>
-  <br>
-  <input type="radio" [(ngModel)]="selectedRecipe.difficulty" [value]="1">1 (Low Difficulty)<br>
-  <input type="radio" [(ngModel)]="selectedRecipe.difficulty" [value]="2">2 (Moderate Difficulty)
-  <button (click)="finishedEditing()">Done</button>
-</div>
+  <app-recipe-list [childRecipeList]="masterRecipeList" (clickSender)="editRecipe($event)"><app-recipe-list>
+
+  
