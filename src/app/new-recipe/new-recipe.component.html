@@ -1,0 +1,26 @@
+<h1>New Recipe</h1>
+<div>
+  <label>Enter New Recipe:</label>
+  <input #newTitle>
+</div>
+<div>
+  <label>Enter Ingredients:</label>
+  <ul *ngFor="let ingredient of ingredients">
+    <li><input #newIngredients1></li>
+    <li><input #newIngredients2></li>
+    <li><input #newIngredients3></li>
+  </ul>
+</div>
+<div>
+  <label>Enter Directions:</label>
+  <input #newDirections>
+</div>
+<div>
+  <label>Recipe Priority</label>
+  <select #newDifficulty>
+    <option [value]="1">Low Difficulty</option>
+    <option [value]="2">Medium Difficulty</option>
+    <option [value]="3">High Difficulty</option>
+  </select>
+  <button (click)="submitForm(newTitle.value, [newIngredients1.value, newIngredients2.value, newIngredients3.value], newDirections.value, newDifficulty.value); newTitle.value=''; newIngredients.value=''; newDirections.value='';">Add</button>
+</div>

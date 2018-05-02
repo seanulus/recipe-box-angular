@@ -13,4 +13,7 @@ export class AppComponent {
     new Recipe('Macaroni and Cheese', ['Macaroni', 'Cheddar Cheese', 'Milk', 'Flour', 'Butter', 'Salt'], 'First, start boiling some water on the stove.', 1),
     new Recipe('Cookie', ['Cookie dough'], 'Throw it in the oven', 2)
   ]
+  addRecipe(newRecipe: Recipe) {
+    this.masterRecipeList.push(newRecipe);
+  }
 }
