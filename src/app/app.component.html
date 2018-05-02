@@ -5,21 +5,7 @@
   </h1>
   <h2>{{currentFocus}}</h2>
 
-  <div *ngFor='let currentRecipe of recipes'>
-  <h3 (click)="viewRecipe(currentRecipe)" [class]="difficultyColor(currentRecipe)">{{currentRecipe.title}} : {{currentRecipe.difficulty}}</h3>
-  <div *ngIf="selectedTitle === currentRecipe">
-    <p>Ingredients:</p>
-    <ul>
-      <li *ngFor='let ingredient of currentRecipe.ingredients'>{{ingredient}}</li>
-    </ul>
-    <p>Directions:</p>
-    <ul>
-      <li>{{currentRecipe.directions}}</li>
-    </ul>
-    <br>
-    <button (click)="editRecipe(currentRecipe)">Edit!</button>
-  </div>
-</div>
+  <app-recipe-list><app-recipe-list>
 <div *ngIf="selectedRecipe">
   <h3>{{selectedRecipe.title}}</h3>
   <h3>Edit Recipe</h3>
