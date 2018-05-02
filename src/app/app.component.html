@@ -5,7 +5,7 @@
   </h1>
   <h2>{{currentFocus}}</h2>
 
-  <app-recipe-list><app-recipe-list>
+  <app-recipe-list [childRecipeList]="masterRecipeList"><app-recipe-list>
 <div *ngIf="selectedRecipe">
   <h3>{{selectedRecipe.title}}</h3>
   <h3>Edit Recipe</h3>

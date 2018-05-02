@@ -1,4 +1,4 @@
-<div *ngFor='let currentRecipe of recipes'>
+<div *ngFor='let currentRecipe of childRecipeList'>
 <h3 (click)="viewRecipe(currentRecipe)" [class]="difficultyColor(currentRecipe)">{{currentRecipe.title}} : {{currentRecipe.difficulty}}</h3>
 <div *ngIf="selectedTitle === currentRecipe">
   <p>Ingredients:</p>
